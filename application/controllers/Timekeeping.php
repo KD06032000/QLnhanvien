@@ -72,6 +72,5 @@ class Timekeeping extends CI_Controller {
 	{
 		$this->timekeeping->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
-		var_dump(array());
 	}
 }

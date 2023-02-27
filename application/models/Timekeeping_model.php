@@ -10,6 +10,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             parent::__construct();
             $this->load->database();
+            $this->load->model('person_model')->count_filtered();
+            $this->load->model('person_model')->count_all();
+            $this->load->model('person_model')->get_by_id();
         }
         private function _get_datatables_query()
         {
@@ -56,29 +59,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $query = $this->db->get();
             return $query->result();
         }
-    
-        function count_filtered()
-        {
-            $this->_get_datatables_query();
-            $query = $this->db->get();
-            return $query->num_rows();
-        }
-    
-        public function count_all()
-        {
-            $this->db->from($this->table);
-            return $this->db->count_all_results();
-        }
-    
-        public function get_by_id($id)
-        {
-            $this->db->from($this->table);
-            $this->db->where('id',$id);
-            $query = $this->db->get();
-    
-            return $query->row();
-        }
-    
         public function save($data)
         {
             $this->db->insert($this->table, $data);

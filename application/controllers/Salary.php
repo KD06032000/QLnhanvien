@@ -27,7 +27,6 @@ class Salary extends CI_Controller {
 			$row[] = $salary->songayluong;
 			$row[] = $salary->tienluong = (($salary->songayluong) * 300000).'VND';
 
-
 			//add html for action
 			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_person('."'".$salary->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
 				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_person('."'".$salary->id."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
