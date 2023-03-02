@@ -12,6 +12,8 @@ class Salary extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
+		$this->load->view('include/header');
+		$this->load->view('include/navbar');
 		$this->load->view('salary_view');
 	}
 

@@ -1,51 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head> 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quản Lý Nhân Viên</title>
-    <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
-    
-    <link href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')?>" rel="stylesheet">
-
-    </head> 
-<body>
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">QUẢN LÝ NHÂN VIÊN</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('default_controller')?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Nhân Viên</span></a>
-            </li>
-
-
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('index.php/timekeeping')?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Chấm Công</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('index.php/salary')?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Lương</span></a>
-            </li>
-
-        </ul>
-        <div class="container">
+    <div class="container">
         <br />
         <button class="btn btn-success" onclick="add_person()"><i class="glyphicon glyphicon-plus"></i> Add nhân viên</button>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
@@ -83,12 +36,8 @@
 <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
 <script src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.js')?>"></script>
 <script src="<?php echo base_url('assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js')?>"></script>
-
-
-
-
+<script src="<?php echo base_url('assets/js/person_ajax.js')?>"></script>
 <script type="text/javascript">
-
 var save_method; //for save method string
 var table;
 
@@ -308,6 +257,5 @@ function delete_person(id)
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- End Bootstrap modal -->
-
 </body>
 </html>

@@ -1,48 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head> 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>QUẢN LÝ NHÂN VIÊN</title>
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')?>" rel="stylesheet">
-
-    </head> 
-<body>
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">QUẢN LÝ NHÂN VIÊN</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('index.php/default_controller')?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Nhân Viên</span></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('index.php/timekeeping')?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Chấm Công</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('index.php/salary')?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Lương</span></a>
-            </li>
-        </ul>
     <div class="container">
         <h3>QUẢN LÝ NHÂN VIÊN</h3>
         <br />
@@ -124,8 +79,6 @@ $(document).ready(function() {
 
 });
 
-
-
 function add_person()
 {
     save_method = 'add';
@@ -156,7 +109,7 @@ function edit_person(id)
             $('[name="trangthai"]').val(data.trangthai);
             
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Person'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit timekeeping'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -211,30 +164,6 @@ function save()
 
         }
     });
-}
-
-function delete_person(id)
-{
-    if(confirm('Are you sure delete this data?'))
-    {
-        // ajax delete data to database
-        $.ajax({
-            url : "<?php echo site_url('person/ajax_delete')?>/"+id,
-            type: "POST",
-            dataType: "JSON",
-            success: function(data)
-            {
-                //if success reload ajax table
-                $('#modal_form').modal('hide');
-                reload_table();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-                alert('Error deleting data');
-            }
-        });
-
-    }
 }
 
 </script>
